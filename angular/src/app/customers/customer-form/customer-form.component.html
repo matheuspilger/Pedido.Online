@@ -1,0 +1,38 @@
+<div class="container">
+
+    <div align="right">
+        <button mat-raised-button color="primary" routerLink="/customer-list">Voltar a Listagem</button>
+    </div>
+
+    <div class="card p-5 mt-2">
+
+        <form #customerForm="ngForm" (ngSubmit)="saveCustomer(customerForm)">
+
+            <mat-checkbox class="mb-3" (change)="onIsAtive($event)" color="primary" value="isActive" [checked]="customer.isActive">Ativo</mat-checkbox>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Nome do cliente" name="name" [(ngModel)]="customer.name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email do cliente" name="email" [(ngModel)]="customer.email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Celular</mat-label>
+                <input matInput placeholder="Celular do cliente" name="phone" [(ngModel)]="customer.phone">
+            </mat-form-field>
+
+            <mat-divider></mat-divider>
+
+            <div class="text-center mt-3">
+                <button mat-raised-button color="primary" class="m-2">Salvar Cadastro</button>
+            </div>
+
+        </form>
+
+
+    </div>
+</div>

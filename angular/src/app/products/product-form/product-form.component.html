@@ -1,0 +1,33 @@
+<div class="container">
+
+    <div align="right">
+        <button mat-raised-button color="primary" routerLink="/product-list">Voltar a Listagem</button>
+    </div>
+
+    <div class="card p-5 mt-2">
+
+        <form #productForm="ngForm" (ngSubmit)="saveProduct(productForm)">
+
+            <mat-checkbox class="mb-3" (change)="onIsAtive($event)" color="primary" value="isActive" [checked]="product.isActive">Ativo</mat-checkbox>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Nome do produto" name="name" [(ngModel)]="product.name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Preço</mat-label>
+                <input matInput placeholder="Preço do produto" name="email" [(ngModel)]="product.price">
+            </mat-form-field>
+
+            <mat-divider></mat-divider>
+
+            <div class="text-center mt-3">
+                <button mat-raised-button color="primary" class="m-2">Salvar Cadastro</button>
+            </div>
+
+        </form>
+
+
+    </div>
+</div>

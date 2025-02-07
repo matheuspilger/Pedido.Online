@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div align="right">
+        <button mat-raised-button color="primary" routerLink="/order-list">Voltar a Listagem</button>
+    </div>
+
+    <div class="card p-5 mt-2">
+
+        <form #orderForm="ngForm" (ngSubmit)="saveOrder(orderForm)">
+
+            <mat-checkbox class="mb-3" (change)="onIsAtive($event)" color="primary" value="isActive" [checked]="order.isActive">Ativo</mat-checkbox>
+
+            <mat-form-field>
+                <mat-label>Selecione o Status</mat-label>
+                <mat-select name="status" [(ngModel)]="order.status">
+                    <mat-option value="1">Pendente</mat-option>
+                    <mat-option value="2">Concluido</mat-option>
+                    <mat-option value="3">Cancelado</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Selecione o Cliente</mat-label>
+                <mat-select name="customer" [(ngModel)]="order.customerId">
+                    <mat-option *ngFor="let option of customersDataSource" [value]="option.id">{{ option.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Selecione o Produto</mat-label>
+                <mat-select name="customer" [(ngModel)]="order.customerId" multiple>
+                    <mat-option *ngFor="let option of productsDataSource" [value]="option.id">{{ option.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-divider></mat-divider>
+
+            <div class="text-center mt-3">
+                <button mat-raised-button color="primary" class="m-2">Salvar Cadastro</button>
+            </div>
+
+        </form>
+
+
+    </div>
+</div>
